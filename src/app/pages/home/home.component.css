@@ -1,0 +1,8 @@
+.articles {
+  display: flex;
+  flex-direction: row;
+}
+
+.articles div {
+  margin: 3cqmin;
+}

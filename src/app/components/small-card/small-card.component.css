@@ -1,0 +1,11 @@
+.container__small-card {
+display: flex;
+flex-direction: row;
+  border: 1px solid white;
+  width: 75%;
+}
+
+.img__small-card {
+  width: 50px;
+}
+ /* min 9:00 */
