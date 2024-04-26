@@ -4,5 +4,6 @@
 }
 
 .articles div {
-  margin: 3cqmin;
+  margin: 1em;
+  width: 100%;
 }
