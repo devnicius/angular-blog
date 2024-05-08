@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { mock } from '../../data/mock'
 
 @Component({
   selector: 'app-big-card',
@@ -16,10 +17,18 @@ export class BigCardComponent implements OnInit {
   @Input()
   cardDescription:string = '';
 
+  @Input()
+  Id:string = '0';
+
+  protected principal:any[] = [];
+
 
   constructor() { }
 
   ngOnInit(): void {
+    for (const item of mock) {
+      if (item.isPrincipal) {}
+    }
   }
 
 }

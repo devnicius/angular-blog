@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { mock } from '../../data/mock'
 
 @Component({
   selector: 'app-content',
@@ -8,17 +10,36 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ContentComponent implements OnInit {
 
   @Input()
-  protoCover:string = 'https://static-prod.adweek.com/wp-content/uploads/2017/07/ContentIsKing.jpg.webp';
+  protoCover:string = '';
 
   @Input()
-  contentTitle:string = 'Conteúdo';
+  contentTitle:string = '';
 
   @Input()
-  contentDescription:string = 'Descrição do conteúdo';
+  contentDescription:string = '';
 
-  constructor() { }
+  private id: string | null = '0';
+
+  constructor(
+    private route:ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(
+      value => this.id = value.get('id')
+    )
+    this.setValuesToComponent(this.id);
   }
 
+  setValuesToComponent(id:string | null) {
+    const result = mock.filter(article => article.id.toString() == id
+    )[0]
+
+    this.contentTitle = result.title;
+    this.contentDescription = result.description;
+    this.protoCover = result.photo;
+    if (!result) {
+
+    }
+  }
 }

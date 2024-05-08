@@ -2,19 +2,22 @@
 <app-menu-title></app-menu-title>
 
 <div class="articles">
+
   <div class="articles__main">
-    <app-big-card photoCover="https://static-prod.adweek.com/wp-content/uploads/2017/07/ContentIsKing.jpg.webp"
+    <app-big-card
+    Id="1"
+    photoCover="https://static-prod.adweek.com/wp-content/uploads/2017/07/ContentIsKing.jpg.webp"
     cardTitle="Notícia"
     cardDescription="Opa!!"
     ></app-big-card>
   </div>
 
   <div class="articles__others">
-    <app-small-card photoCover="https://static-prod.adweek.com/wp-content/uploads/2017/07/ContentIsKing.jpg.webp"
-    cardTitle="Notícia bem de boas"></app-small-card>
+    <app-small-card *ngFor="let item of items; index as i"
 
-    <app-small-card photoCover="https://static-prod.adweek.com/wp-content/uploads/2017/07/ContentIsKing.jpg.webp"
-
-                    cardTitle="Notícia 2 bem de boas"></app-small-card>
+        Id="{{item.id}}"
+        photoCover="{{item.photo}}"
+        cardTitle="{{item.title}}">
+    </app-small-card>
   </div>
 </div>
